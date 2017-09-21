@@ -1,53 +1,84 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <el-radio class="radio" v-model="radio" label="1">备选项</el-radio>
+    <el-radio class="radio" v-model="radio" label="2">备选项</el-radio>
+    <div>
+      <el-checkbox-group v-model="checkList">
+        <el-checkbox label="复选框 A"></el-checkbox>
+        <el-checkbox label="复选框 B"></el-checkbox>
+        <el-checkbox label="复选框 C"></el-checkbox>
+        <el-checkbox label="禁用" :disabled = "true"></el-checkbox>
+        <el-checkbox label="选中且禁用" disabled></el-checkbox>
+      </el-checkbox-group>
+      {{checkList}}
+    </div>
+    <div>
+       <el-table
+        ref="singleTable"
+        :data="tableData"
+        highlight-current-row
+        @current-change="handleCurrentChange"
+        style="width: 100%">
+         <el-table-column
+          type="index"
+          width="50"></el-table-column>
+         <el-table-column
+          property="date"
+          label="日期"
+          width="120"></el-table-column>
+         <el-table-column
+          property="name"
+          label="姓名"
+          width="120"></el-table-column>
+         <el-table-column
+          property="address"
+          label="地址"></el-table-column>
+       </el-table>
+
+      <div style="margin-top: 20px">
+        <el-button @click="setCurrent(tableData[1])">选中第二行</el-button>
+        <el-button @click="setCurrent()">取消选择</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'hello',
-  data () {
+  data(){
     return {
-      msg: 'Welcome to Your Vue.js App'
+      radio: '1',
+      checkList:['选中且禁用','复选框 A'],
+      tableData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄'
+        }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }],
+        currentRow: null
+    }
+  },
+  methods: {
+    setCurrent(row) {
+      this.$refs.singleTable.setCurrentRow(row);
+    },
+    handleCurrentChange(val) {
+      this.currentRow = val;
+      console.log(this.currentRow)
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>
