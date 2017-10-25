@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <el-alert title="成功提示的文案" type="success" show-icon></el-alert>
+
     <el-radio class="radio" v-model="radio" label="1">备选项</el-radio>
     <el-radio class="radio" v-model="radio" label="2">备选项</el-radio>
     <div>

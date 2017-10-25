@@ -1,6 +1,6 @@
 {
   "name": "vuedemo",
-  "description": "A Vue.js project",
+  "description": "后台模版 Vue+ElementUI",
   "main": "",
   "authors": [
     "前端老徐 <442413729@qq.com>"
@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "xsl.reset-css": "^1.0.0"
+    "xsl.reset-css": "^1.0.0",
+    "animate.css": "^2.0.0"
   }
 }
