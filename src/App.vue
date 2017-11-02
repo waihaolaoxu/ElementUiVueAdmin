@@ -4,7 +4,7 @@
     <v-header></v-header>
     <v-menu></v-menu>
 
-    <div class="container">
+    <div class="content">
       <div class="wrapper">
         <!-- <div class="here">
           <el-breadcrumb separator="/">

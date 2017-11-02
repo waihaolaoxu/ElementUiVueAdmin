@@ -5,9 +5,6 @@ import './elemeui'
 import App from './App'
 import router from './router'
 
-// import '../bower_components/xsl.reset-css/reset.css'
-import '../bower_components/animate.css/animate.css'
-
 Vue.config.productionTip = false
 
 new Vue({

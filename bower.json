@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "xsl.reset-css": "^1.0.0",
     "animate.css": "^2.0.0"
   }
 }
