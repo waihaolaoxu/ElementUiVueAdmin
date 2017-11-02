@@ -2,7 +2,7 @@
 * @Author: qdlaoxu
 * @Date:   2017-10-25 10:07:46
 * @Last Modified by:   qdlaoxu
-* @Last Modified time: 2017-11-02 14:23:20
+* @Last Modified time: 2017-11-02 16:57:34
 */
 
 @import "../bower_components/animate.css/animate.css";
@@ -43,7 +43,7 @@ li{list-style: none;}
     &.is-active{border-bottom-color:#fff !important;}
 }
 .el-breadcrumb__inner{font-weight: normal;}
-
+.el-tabs__item{height: 45px;line-height: 45px;}
 
 
 
@@ -171,6 +171,6 @@ html,body{overflow: hidden;}
 //列表页面
 .list-box{
     .list-header{border-bottom: solid 1px $border-3;}
-    .list-body{padding:15px;background: #fff;border:solid 1px $border-3;border-top: 0;}
+    .list-body{padding:20px;background: #fff;border:solid 1px $border-3;border-top: 0;}
     .list-footer{text-align: right;margin-top: 15px;}
 }
