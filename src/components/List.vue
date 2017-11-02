@@ -14,7 +14,7 @@
                     <el-option label="区域二" value="beijing"></el-option>
                   </el-select>
                 </el-form-item><el-form-item>
-                  <el-button type="primary" @click="onSubmit" icon="el-icon-search">查询</el-button>
+                  <el-button type="primary" @click="onSubmit" icon="el-icon-search" :loading="loading">查询</el-button>
                 </el-form-item>
               </el-form>
             </div>
@@ -42,8 +42,8 @@
               </el-table-column> 
               <el-table-column label="操作">
                 <template slot-scope="scope">
-                  <el-button @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit" size="mini" title="编辑"></el-button>
-                  <el-button @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete" size="mini" title="删除" type="danger"></el-button>
+                  <el-button @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit" title="编辑" size="mini" round>编辑</el-button>
+                  <el-button @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete" title="删除" type="danger" size="mini" round>删除</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -74,6 +74,7 @@ import route from '../router/index'
 export default {
     data() {
       return {
+        loading:false,
         activeName2: 'first',
         tableData: [{
           date: '2016-05-02',
@@ -106,8 +107,27 @@ export default {
       handleClick(tab, event) {
         console.log(tab, event);
       },
+      // 编辑
       handleEdit(id){
         route.push({ path: 'form',query:{id:id}})
+      },
+      // 删除
+      handleDelete(){
+         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          // this.$message({
+          //   type: 'info',
+          //   message: '已取消删除'
+          // });          
+        });
       },
       formatter(row, column) {
         return row.address;
@@ -119,7 +139,11 @@ export default {
         console.log(`当前页: ${val}`);
       },
       onSubmit() {
-        console.log('submit!');
+        var _self = this;
+        this.loading = true;
+        setTimeout(function(){
+            _self.loading = false;
+        },1000)
       }
     }
   }

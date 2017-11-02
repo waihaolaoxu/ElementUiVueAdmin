@@ -6,15 +6,7 @@
 
     <div class="content">
       <div class="wrapper">
-        <!-- <div class="here">
-          <el-breadcrumb separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-          </el-breadcrumb>
-        </div> -->
-        <transition mode="out-in" enter-active-class="animated fadeInUp">
+        <transition mode="out-in" enter-active-class="animated fadeInDown">
           <router-view></router-view>
         </transition>
       </div>
@@ -22,7 +14,9 @@
 
   </div>
 </template>
-
+<style scoped>
+.animated{animation-duration: 0.5s;}
+</style>
 <script>
 import header from './components/block/Header'
 import menu from './components/block/Menu'
