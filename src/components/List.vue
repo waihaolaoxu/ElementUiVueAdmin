@@ -39,7 +39,7 @@
                 prop="address"
                 label="地址"
                 :formatter="formatter">
-              </el-table-column>
+              </el-table-column> 
               <el-table-column label="操作">
                 <template slot-scope="scope">
                   <el-button @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit" size="mini" title="编辑"></el-button>
