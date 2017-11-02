@@ -1,22 +1,6 @@
 <template>
-  <div class="hello">
- <!--    <el-alert title="成功提示的文案" type="success" show-icon></el-alert>
-
-    <el-radio class="radio" v-model="radio" label="1">备选项</el-radio>
-    <el-radio class="radio" v-model="radio" label="2">备选项</el-radio>
-    <div>
-      <el-checkbox-group v-model="checkList">
-        <el-checkbox label="复选框 A"></el-checkbox>
-        <el-checkbox label="复选框 B"></el-checkbox>
-        <el-checkbox label="复选框 C"></el-checkbox>
-        <el-checkbox label="禁用" :disabled = "true"></el-checkbox>
-        <el-checkbox label="选中且禁用" disabled></el-checkbox>
-      </el-checkbox-group>
-      {{checkList}}
-    </div> -->
-    
-    
-    <div class="query-box">
+  <div class="list-box">
+    <div class="list-header">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="审批人">
           <el-input v-model="formInline.user" placeholder="审批人"></el-input>
@@ -31,9 +15,7 @@
         </el-form-item>
       </el-form>
     </div>
-
-
-    <div class="content">
+    <div class="list-body">
       <el-table
         :data="tableData"
         border
@@ -69,17 +51,17 @@
           </template>
         </el-table-column>
       </el-table>
-      <div class="pagination">
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage4"
-          :page-sizes="[100, 200, 300, 400]"
-          :page-size="100"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="400">
-        </el-pagination>
-      </div>
+    </div>
+    <div class="list-footer">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400">
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -106,6 +88,10 @@ export default {
           name: '4王小虎',
           address: '上海市普陀区金沙江路 1516 弄'
         }],
+        currentPage1: 5,
+        currentPage2: 5,
+        currentPage3: 5,
+        currentPage4: 4,
         formInline: {
           user: '',
           region: ''
@@ -115,6 +101,12 @@ export default {
     methods: {
       formatter(row, column) {
         return row.address;
+      },
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
       },
       onSubmit() {
         console.log('submit!');
