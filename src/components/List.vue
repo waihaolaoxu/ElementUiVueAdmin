@@ -4,7 +4,7 @@
         <el-tab-pane label="用户管理" name="first">
           <div class="list-body">
             <div class="list-header">
-              <el-form :inline="true" :model="formInline" class="demo-form-inline">
+              <el-form :inline="true" :model="formInline" class="demo-form-inline" size="small">
                 <el-form-item label="审批人">
                   <el-input v-model="formInline.user" placeholder="审批人"></el-input>
                 </el-form-item>
@@ -21,6 +21,7 @@
             <el-table
               :data="tableData"
               style="width: 100%"
+              size="mini"
               :default-sort = "{prop: 'date', order: 'descending'}"
               >
               <el-table-column
@@ -42,8 +43,8 @@
               </el-table-column> 
               <el-table-column label="操作">
                 <template slot-scope="scope">
-                  <el-button @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit" title="编辑" size="mini" round>编辑</el-button>
-                  <el-button @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete" title="删除" type="danger" size="mini" round>删除</el-button>
+                  <el-button @click="handleEdit(scope.$index, scope.row)" title="编辑" size="mini">编辑</el-button>
+                  <el-button @click="handleDelete(scope.$index, scope.row)" title="删除" type="danger" size="mini">删除</el-button>
                 </template>
               </el-table-column>
             </el-table>

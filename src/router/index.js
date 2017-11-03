@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Form from '@/components/Form'
-import List from '@/components/List'
+// import Form from '@/components/Form'
+// import List from '@/components/List'
 
 Vue.use(Router)
 
@@ -22,7 +22,7 @@ export default new Router({
       meta:{
         title:'列表'
       },
-      component: List
+      component: () => import('@/components/List')
     },
     {
       path: '/form',
@@ -30,7 +30,7 @@ export default new Router({
       meta:{
         title:'编辑'
       },
-      component: Form
+      component: () => import('@/components/Form')
     },
     {
       path: '/foo2',

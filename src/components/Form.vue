@@ -2,7 +2,7 @@
     <div class="form-page">
         <here class="wrapper bg-white b"></here>
         <div class="wrapper bg-white b">
-            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" size="small">
               <el-form-item label="活动名称" prop="name">
                 <el-input v-model="ruleForm.name"></el-input>
               </el-form-item>
