@@ -104,7 +104,19 @@ export default {
         }
       }
     },
+    created(){
+      this.getData();
+    },
     methods: {
+      getData(){
+        this.$http.get('http://analytics.jiajuol.com/api/user/get')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      },
       handleClick(tab, event) {
         console.log(tab, event);
       },
