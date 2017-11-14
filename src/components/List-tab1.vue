@@ -18,32 +18,8 @@
       </div>
       
 
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>标题<!-- <i class="el-icon-d-caret"></i> --></th>
-              <th>标题<!-- <i class="el-icon-caret-top"></i> --></th>
-              <th>标题</th>
-              <th>标题</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in tableData">
-              <td>{{item.date}}</td>
-              <td>{{item.name}}</td>
-              <td>{{item.address}}</td>
-              <td>
-                <el-button @click="handleEdit(item.id)" title="编辑" size="mini">编辑</el-button>
-                <el-button @click="handleDelete(item.id)" title="删除" type="danger" size="mini">删除</el-button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-
-      <!-- <el-table
+      <el-table
         :data="tableData"
         style="width: 100%"
         size="mini"
@@ -72,7 +48,7 @@
             <el-button @click="handleDelete(scope.$index, scope.row)" title="删除" type="danger" size="mini">删除</el-button>
           </template>
         </el-table-column>
-      </el-table> -->
+      </el-table>
 
 
       <div class="list-footer">
