@@ -1,6 +1,6 @@
 <template>
     <div class="form-page">
-        <here class="wrapper bg-white b"></here>
+        <my-here class="wrapper bg-white b"></my-here>
         <div class="wrapper bg-white b">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" size="small">
               <el-form-item label="活动名称" prop="name">

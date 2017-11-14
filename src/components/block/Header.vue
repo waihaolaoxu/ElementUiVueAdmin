@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" menu-trigger="click">
         <li class="el-menu-item" @click="asideToggle"><i class="iconfont" :class="{'icon-dedent':!asideFolded,'icon-indent':asideFolded}"></i></li>
         <!-- <el-menu-item index="1">处理中心</el-menu-item>
         <el-submenu index="2">
